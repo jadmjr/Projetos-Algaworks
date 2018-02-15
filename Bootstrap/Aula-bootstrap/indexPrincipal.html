@@ -81,6 +81,7 @@
                 </div>
             </div>
         </div>
+        
         <div class="table-responsive tabela">
             <table class=" dados-os table table-striped table-bordered table-hover">
                 <thead>
@@ -88,6 +89,7 @@
                         <th>Cod.</th>
                         <th>Data</th>
                         <th>Cliente</th>
+                        <th>Serviço</th>
                         <th>Valor</th>
                         <th>Funcionário</th>
                         <th>Status</th>
@@ -99,6 +101,7 @@
                         <td>53535</td>
                         <td>05/05/2015</td>
                         <td>Gandalf Cinzento</td>
+                        <td>Conserto de Engrenagem</td>
                         <td>800,00</td>
                         <td>Jorge</td>
                         <td><span class="label label-primary">Em Andamento</span></td>
@@ -112,6 +115,7 @@
                         <td>53535</td>
                         <td>05/05/2015</td>
                         <td>Gandalf Cinzento</td>
+                        <td>Conserto de Engrenagem</td>
                         <td>800,00</td>
                         <td>Jorge</td>
                         <td><span class="label label-default">Em Andamento</span></td>
@@ -125,6 +129,7 @@
                         <td>53535</td>
                         <td>05/05/2015</td>
                         <td>Gandalf Cinzento</td>
+                        <td>Ajuste Data/Hora</td>
                         <td>800,00</td>
                         <td>Jorge</td>
                         <td><span class="label label-warning">Em Andamento</span></td>
@@ -138,6 +143,7 @@
                         <td>53535</td>
                         <td>05/05/2015</td>
                         <td>Gandalf Cinzento</td>
+                        <td>Troca de Bateria</td>
                         <td>800,00</td>
                         <td>Jorge</td>
                         <td><span class="label label-danger">Em Andamento</span></td>
@@ -151,6 +157,7 @@
                             <td>53535</td>
                             <td>05/05/2015</td>
                             <td>Gandalf Cinzento</td>
+                            <td>Troca de Bateria</td>
                             <td>800,00</td>
                             <td>Jorge</td>
                             <td><span class="label label-success">Em Andamento</span></td>
@@ -165,7 +172,7 @@
         </div>
         <footer class="row">
             <div class="col-sm-6">
-                <button class="btn btn-primary">Nova Ordem de Serviço</button>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#NovaOs">Nova Ordem de Serviço</button>
             </div>
             <div class="col-sm-6 paginacao text-right">
                 <ul class="pagination">
@@ -179,6 +186,87 @@
                 </ul>
             </div>
         </footer>
+    </div>
+
+    <div class="modal fade" id="NovaOs">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" class="close">
+                        <span>&times;</span>
+                    </button>
+                    <h4 class="modal-title">Nova Ordem de Serviço</h4>
+                </div>
+                <div>
+                    <form>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="form-group col-xs-12">
+                                    <label>Código da OS</label>
+                                    <p class="form-control-static">53535</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-5">
+                                    <label class="control-label" for="Cliente">Cliente</label>
+                                    <select id="Cliente" class="form-control">
+                                        <option value="">Selecione...</option>
+                                        <option value="1">Frodo Bolseiro</option>
+                                        <option value="2">Gandalf Cinzento</option>
+                                        <option value="3">Sauron de Mordor</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-7">
+                                        <label class="control-label" for="Servico">Serviços</label>
+                                        <select id="Servico" class="form-control">
+                                            <option value="">Selecione...</option>
+                                            <option value="1">Ajuste Data/Hora</option>
+                                            <option value="2">Conserto de Engrenagem</option>
+                                            <option value="3">Troca de Bateria</option>
+                                        </select>
+                                </div>
+                                <div class="form-group col-sm-5">
+                                    <label class="control-label" for="Funcionario">Funcionário</label>
+                                    <select id="Funcionario" class="form-control">
+                                        <option value="">Selecione...</option>
+                                        <option value="1">Jorge</option>
+                                        <option value="2">Pedro</option>
+                                        <option value="3">José</option>
+                                    </select>
+                                </div>
+                                <div class="form-group col-sm-4">
+                                    <label class="control-label" for="data">Data</label>
+                                    <div class="input-group">
+                                        <input type="date" class="form-control" name="data" id="data">
+                                        <div class="input-group-addon">
+                                            <span class="glyphicon glyphicon-calendar"></span> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group has-error col-xs-12">
+                                    <label class="control-label" for="Observacao">Observação</label>
+                                    <textarea id="Observacao" rows="3" class="form-control" placeholder="Insirá alguma observação..."></textarea>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="form-group col-sm-4">
+                                    <label class="control-label" for="Valor">Valor</label>
+                                    <div class="input-group">
+                                        <div class="input-group-addon">R$</div>
+                                        <input type="text" class="form-control" name="valor" id="Valor">
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="modal-footer">
+                            <button type="reset" class="btn btn-danger">Limpar</button>
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="js/jquery-3.3.1.min.js"></script>
